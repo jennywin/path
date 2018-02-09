@@ -1,17 +1,48 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>
+      Path App
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card>
+    <div *ngIf="isLoggedIn; else loginTemplate">
+      <h1>Welcome, {{displayName}}!</h1>
+      <p>Email: {{email}}
+        <br> Family Name: {{familyName}}
+        <br> Given Name: {{givenName}}
+        <br> User ID: {{userId}}</p>
+      <p>
+        <ion-avatar item-left>
+          <img src="{{imageUrl}}">
+        </ion-avatar>
+      </p>
+      <p>
+        <button ion-button (click)="logout()">Logout of Google</button>
+      </p>
+    </div>
+
+    <ng-template #loginTemplate>
+      <h1>Please login to see your Google Account Information</h1>
+      <p>
+        <button ion-button (click)="login()">Login With Google</button>
+      </p>
+    </ng-template>
+
+    <p>
+      <button ion-button (click)="getQuote()">Get a quote!</button>
+    </p>
+<!--
+    <h2>Posts</h2>
+    <ion-list>
+      <ion-item *ngFor="let post of posts">
+        <img [src]="post.data.url" />
+      </ion-item>
+    </ion-list> -->
+
+
+    <h2>Palindrome API Response Here</h2>
+  </ion-card>
 </ion-content>

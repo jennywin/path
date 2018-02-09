@@ -7,5 +7,19 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <div *ngIf="!isHealthAvailable; else healthDataTemplate">
+      <h1>Health Data Access</h1>
+      <p>
+        <button ion-button (click)="checkHealth()">Give Us Access</button>
+      </p>
+    </div>
 
+    <ng-template #healthDataTemplate>
+      <h1>Health Data Summary</h1>
+      <p>
+        <button ion-button (click)="getHealthData()">Give Us Your Health Data</button>
+      </p>
+    </ng-template>
+  </ion-card>
 </ion-content>
