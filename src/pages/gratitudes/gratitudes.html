@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Gratitudes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let user of data">
+    <ion-card *ngFor="let gratitude of user.gratitudes">
+
+      <ion-item>
+        <ion-avatar item-left>
+          <ion-icon name="leaf" class="avatar-leaf"></ion-icon>
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+        <p>{{gratitude.gratitudeDate}}</p>
+      </ion-item>
+
+      <ion-card-content>
+        {{gratitude.gratitude}}
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+</ion-content>

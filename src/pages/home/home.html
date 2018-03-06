@@ -1,48 +1,62 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Path App
+    <ion-title text-center>
+      Home
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <div *ngIf="isLoggedIn; else loginTemplate">
-      <h1>Welcome, {{displayName}}!</h1>
-      <p>Email: {{email}}
-        <br> Family Name: {{familyName}}
-        <br> Given Name: {{givenName}}
-        <br> User ID: {{userId}}</p>
-      <p>
-        <ion-avatar item-left>
-          <img src="{{imageUrl}}">
-        </ion-avatar>
-      </p>
-      <p>
-        <button ion-button (click)="logout()">Logout of Google</button>
-      </p>
-    </div>
-
-    <ng-template #loginTemplate>
-      <h1>Please login to see your Google Account Information</h1>
-      <p>
-        <button ion-button (click)="login()">Login With Google</button>
-      </p>
-    </ng-template>
-
-    <p>
-      <button ion-button (click)="getQuote()">Get a quote!</button>
-    </p>
-<!--
-    <h2>Posts</h2>
-    <ion-list>
-      <ion-item *ngFor="let post of posts">
-        <img [src]="post.data.url" />
-      </ion-item>
-    </ion-list> -->
-
-
-    <h2>Palindrome API Response Here</h2>
+  <ion-card padding>
+    <h1>Welcome to your Path</h1>
+    <p>Path is the mindfulness app that is mindful of you. You will only get gentle reminders to revisit your path when you aren't preoccupied with other life things like working, sleeping, working out, or commuting.</p>
+    <img src="assets/imgs/journey.jpg" />
   </ion-card>
+
+  <ion-card padding>
+    <h2>Random Quote</h2>
+    <p>{{randomQuote}}</p>
+  </ion-card>
+
+  <!-- <ion-card padding *ngIf="isLoggedIn; else loginTemplate">
+    <h1>Welcome, {{displayName}}!</h1>
+    <p>Email: {{email}}</p>
+    <p>
+      <ion-avatar item-left>
+        <img src="{{imageUrl}}">
+      </ion-avatar>
+    </p>
+    <p>
+      <button ion-button (click)="logout()">Logout From Google</button>
+    </p>
+  </ion-card>
+
+  <ng-template #loginTemplate>
+    <p>
+      <button ion-button (click)="login()">Login With Google</button>
+    </p>
+  </ng-template> -->
+
+  <ion-card padding>
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label>Remind me at: </ion-label>
+        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="notifyTime" (ionChange)="timeChange($event)"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>on the following days:</ion-label>
+      </ion-item>
+
+      <ion-item *ngFor="let day of days">
+        <ion-label>{{day.title}}</ion-label>
+        <ion-checkbox [(ngModel)]="day.checked" color="primary"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <button (click)="addNotifications()" ion-button color="primary" full>
+      Remind me</button>
+    <button (click)="cancelAll()" ion-button color="danger" full>Leave me alone!</button>
+  </ion-card>
+
 </ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      Moods
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card padding text-center>
+    <h1>How are you feeling?</h1>
+    <button ion-button icon-only [color]="happyButtonColor" (click)="showHappyModal()">
+      <ion-icon name="happy"></ion-icon>
+    </button>
+    <button ion-button icon-only [color]="sadButtonColor" (click)="showSadModal()">
+      <ion-icon name="sad"></ion-icon>
+    </button>
+  </ion-card>
+
+  <div *ngIf="buttonSelected">
+    <ion-card padding *ngIf="isHappy; else sadTemplate">
+      <p>
+        We're so glad you're feeling great! Maybe you want to share a gratitude?
+      </p>
+    </ion-card>
+
+    <ng-template #sadTemplate>
+      <ion-card padding>
+        <p>
+          Sorry you're not feeling the best :( We find that reading gratitudes helps lift people up.
+        </p>
+      </ion-card>
+    </ng-template>
+  </div>
+</ion-content>

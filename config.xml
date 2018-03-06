@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.pathapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>path</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>Path</name>
+    <description>A meditation community app.</description>
+    <author email="j@jennywin.com">Jenny Nguyen</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -81,12 +81,11 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
+    <plugin name="cordova-plugin-googleplus" spec="~5.2.1">
         <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.929030706163-kuqgpve812a9o473l22lj71s4uk5ps6u" />
     </plugin>
-    <plugin name="cordova-plugin-health" spec="^1.0.3">
-        <variable name="HEALTH_READ_PERMISSION" value=" " />
-        <variable name="HEALTH_WRITE_PERMISSION" value=" " />
-    </plugin>
+    <plugin name="cordova-plugin-x-toast" spec="~2.6.0" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="~0.8.5" />
+    <plugin name="cordova-plugin-native-spinner" spec="^1.1.3" />
     <engine name="ios" spec="4.5.4" />
 </widget>

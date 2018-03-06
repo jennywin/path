@@ -4,43 +4,45 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { MoodsPage } from '../pages/moods/moods';
+import { GratitudesPage } from '../pages/gratitudes/gratitudes';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Health } from '@ionic-native/health';
-import { ApiServiceProvider } from '../providers/api-service/api-service';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { Toast } from '@ionic-native/toast';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    MoodsPage,
+    GratitudesPage,
     HomePage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    MoodsPage,
+    GratitudesPage,
     HomePage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    Health,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiServiceProvider
+    GooglePlus,
+    Toast,
+    LocalNotifications,
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
